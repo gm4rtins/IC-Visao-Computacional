@@ -1,8 +1,6 @@
 import numpy as np
 import cv2
 import pandas as pd
-from pydrive.auth import GoogleAuth
-from pydrive.drive import GoogleDrive
 
 
 # classe que encapsula todos os métodos de captura, processamento e armazenamento das imagens das amostras
@@ -29,7 +27,7 @@ class Analyser:
         cv2.imwrite(str(name) + '.jpg', frame)
 
         # recortando imagens
-        framecut = frame[0:140, 0:639]
+        framecut = frame[370:570, 300:400]
 
         # salvando arquivos de imagem (etapa temporária para avaliar os arquivos)
         cv2.imwrite(str(name) + 'cut.jpg', framecut)
@@ -79,4 +77,5 @@ class Analyser:
     def backup(self):
         return
 
-
+cap = Analyser()
+cap.capturar('teste')
